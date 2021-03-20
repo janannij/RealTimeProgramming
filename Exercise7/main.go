@@ -60,11 +60,11 @@ func main() {
 		defer filename.Close() //defer closing the file
 		_, err1 := filename.WriteString(fmt.Sprintf("%d", 0))
 		check(err1)
+	} else {
+		filename, err := os.Open("phnxfile.txt")
+		check(err)
+		defer filename.Close()
 	}
-
-	filename, err := os.Open("phnxfile.txt")
-	check(err)
-	defer filename.Close()
 
 	count := CheckWriteToFile()
 
